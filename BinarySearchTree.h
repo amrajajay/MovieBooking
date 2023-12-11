@@ -16,7 +16,7 @@ private:
     bool search_and_insert(BinaryNode *&, BookTicket &);
     bool search_and_remove(BinaryNode *&, BookTicket &);
     BinaryNode *&get_successor(BinaryNode *&);
-    BinaryNode*& search_in_bst(BinaryNode *&, string);
+    BinaryNode *&search_in_bst(BinaryNode *&, string);
 };
 
 #endif

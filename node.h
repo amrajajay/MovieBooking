@@ -1,9 +1,10 @@
 #ifndef NODE_H
 #define NODE_H
 #include "Movie.h"
-struct node{
+struct node
+{
     Movie data;
-    node* next;
+    node *next;
     // node();
     node(Movie);
 };

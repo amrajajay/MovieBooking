@@ -6,7 +6,7 @@
 using namespace std;
 class Movie
 {
-    
+
 private:
     int id;
     string movie_name;
@@ -17,7 +17,7 @@ private:
 public:
     const static string MOVIE_DATA_FILE;
     Movie();
-    Movie(int,string,tm,tm,string);
+    Movie(int, string, tm, tm, string);
     int get_id() const;
     string get_movie_name() const;
     tm get_avaliable_from() const;
@@ -28,7 +28,7 @@ public:
     void set_movie_name(string);
     void set_avaliable_from(tm);
     void set_avaliable_to(tm);
-    bool operator==(const Movie&) const;
-    friend ostream& operator<<(ostream& ,const Movie&);
+    bool operator==(const Movie &) const;
+    friend ostream &operator<<(ostream &, const Movie &);
 };
 #endif

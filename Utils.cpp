@@ -226,7 +226,7 @@ void Utils::book_ticket()
         cout << "Please select date : ";
         // cin >> selected_date_choice;
 
-         if (!(cin >> selected_date_choice))
+        if (!(cin >> selected_date_choice))
         {
             // Clear the error state of cin
             cin.clear();
@@ -250,7 +250,7 @@ void Utils::book_ticket()
         cout << "4. 9PM" << endl;
         cout << "Please select slot : ";
         // cin >> selected_slot_choice;
-         if (!(cin >> selected_slot_choice))
+        if (!(cin >> selected_slot_choice))
         {
             // Clear the error state of cin
             cin.clear();
@@ -413,7 +413,8 @@ void Utils::cancel_booking(string bookingID)
     }
     if (!ticket_found)
         cout << "Ticket not found with given booking id" << endl;
-    else cout<<"Booking cancelled successfully"<<endl;
+    else
+        cout << "Booking cancelled successfully" << endl;
 
     fout.close();
 }

@@ -14,15 +14,17 @@ struct BookingQueue
     ~BookingQueue();
     bool view();
     string peek();
-    class QueueEmptyException:exception {
-        private:
-         const char* message;
-        public:
-         QueueEmptyException(const char* msg) : message(msg) {}
-        const char* what() const noexcept override {
+    class QueueEmptyException : exception
+    {
+    private:
+        const char *message;
+
+    public:
+        QueueEmptyException(const char *msg) : message(msg) {}
+        const char *what() const noexcept override
+        {
             return message;
         }
-
     };
 };
 #endif

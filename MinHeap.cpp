@@ -27,10 +27,10 @@ int MinHeap::size() const // returns the # of elements in the heap
 }
 int MinHeap::get_days_in_two_dates(Movie movie)
 {
-    tm date1=movie.get_avaliable_from();
-    tm date2=movie.get_avaliable_to();
-    time_t time_from =  mktime(const_cast<tm *>(&date1));
-    time_t time_to =mktime(const_cast<tm *>(&date2));
+    tm date1 = movie.get_avaliable_from();
+    tm date2 = movie.get_avaliable_to();
+    time_t time_from = mktime(const_cast<tm *>(&date1));
+    time_t time_to = mktime(const_cast<tm *>(&date2));
     //  timeFromTm(date2);
     const int seconds_per_day = 60 * 60 * 24;
     time_t difference = std::difftime(time_to, time_from);

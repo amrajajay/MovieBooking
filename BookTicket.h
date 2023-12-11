@@ -32,7 +32,7 @@ public:
     void set_booking_date(tm);
     int get_free_seats();
     void write_to_file();
-    bool operator==(const string&) const;
+    bool operator==(const string &) const;
 
     string tostring(bool);
 
