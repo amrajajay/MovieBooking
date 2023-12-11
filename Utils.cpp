@@ -6,14 +6,15 @@
 #include <ctime>
 #include <vector>
 #include <chrono>
+#include <limits>
 #include "Movie.h"
 #include "Utils.h"
 #include "MovieStack.h"
 #include "BookTicket.h"
 #include "BookingQueue.h"
-#include "command/Command.h"
-#include "command/AdminCommand.h"
-#include "command/UserCommand.h"
+#include "Command.h"
+#include "AdminCommand.h"
+#include "UserCommand.h"
 #include "MinHeap.h"
 using namespace std;
 
@@ -194,9 +195,18 @@ void Utils::book_ticket()
             cout << i + 1 << ". " << movies_to_show[i].get_movie_name() << endl;
         }
         cout << "Please select Movie : ";
-        cin >> selected_movie_choice;
+        // cin >> selected_movie_choice;
+        // cout << endl;
+
+        if (!(cin >> selected_movie_choice))
+        {
+            // Clear the error state of cin
+            cin.clear();
+            // Ignore invalid input in the stream until a newline
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
         cout << endl;
-    } while (selected_movie_choice > (int)movies_to_show.size() || selected_movie_choice < 1);
+    } while (selected_movie_choice < 1 || selected_movie_choice > (int)movies_to_show.size());
 
     cout << "The selected movie is rated as " << movies_to_show[selected_movie_choice - 1].get_rating_msg() << endl
          << endl;
@@ -214,7 +224,16 @@ void Utils::book_ticket()
         printDate(dayAfterTomorrowDate);
 
         cout << "Please select date : ";
-        cin >> selected_date_choice;
+        // cin >> selected_date_choice;
+
+         if (!(cin >> selected_date_choice))
+        {
+            // Clear the error state of cin
+            cin.clear();
+            // Ignore invalid input in the stream until a newline
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        // cout << endl;
         cout << endl;
 
     } while (selected_date_choice > 3 || selected_date_choice < 1);
@@ -230,7 +249,15 @@ void Utils::book_ticket()
         cout << "3. 6PM" << endl;
         cout << "4. 9PM" << endl;
         cout << "Please select slot : ";
-        cin >> selected_slot_choice;
+        // cin >> selected_slot_choice;
+         if (!(cin >> selected_slot_choice))
+        {
+            // Clear the error state of cin
+            cin.clear();
+            // Ignore invalid input in the stream until a newline
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        // cout << endl;
         cout << endl;
     } while (selected_slot_choice > 4 || selected_slot_choice < 1);
 
@@ -386,6 +413,7 @@ void Utils::cancel_booking(string bookingID)
     }
     if (!ticket_found)
         cout << "Ticket not found with given booking id" << endl;
+    else cout<<"Booking cancelled successfully"<<endl;
 
     fout.close();
 }
