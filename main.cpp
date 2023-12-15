@@ -3,6 +3,7 @@
 #include <conio.h>
 #include "Utils.h"
 #include "MovieStack.h"
+#include <limits>
 MovieStack movie_stack;
 using namespace std;
 
@@ -123,9 +124,18 @@ void run_admin_menu()
             else if (choice == 4)
             {
                 int movie_id;
-                cout << "Please enter the movie id which you want to update from db: ";
-                cin >> movie_id;
+
+                // cin >> movie_id;
+                // cout << endl;
+                cout<<"Please enter movie id to update : ";
+                while (!(cin >> movie_id))
+                {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout<<"Please enter valid movie id to update : ";
+                }
                 cout << endl;
+
                 Utils::update_movie_in_db(movie_id);
                 break;
             }
